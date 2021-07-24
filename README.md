@@ -286,3 +286,13 @@ export MAX_BET=false
 ```
 export zddg=false
 ```
+
+## 真·抢京豆
+#### 高速并发抢京豆，专治偷助力
+#### 设置助人,用户名 或 pin 用&分割, angryBeanMode可选值priority和speed，默认speed模式
+```
+export angryBeanPins="账号昵称1&账号昵称1"
+export angryBeanMode="speed"
+```
+## 特务Zx佳沛
+#### 要跑2次，第一次做任务和脚本内互助，第二次才够币抽奖

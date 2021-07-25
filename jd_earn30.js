@@ -74,6 +74,7 @@ let cookiesArr = [];let isis = [0,1,2];var is = Math.floor((Math.random()*isis.l
             cookie = cookiesArr[i];
             var UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1]);
             var data = await requestApi('splitRedPacket', cookie, {shareCode:help.shareCode,groupCode:help.redPacketId});
+            console.log(`${UserName} 组力->${help.shareCode} 组力结果 ${data.text}`)
             if(data.text == "我的红包已拆完啦"){
                 return
             }

@@ -35,16 +35,16 @@ let cookiesArr = [];let isis = [0,1,2];var is = Math.floor((Math.random()*isis.l
             });
 
             if (data.code === 0 && data.SplitRedPacketInfo) {
-                console.log("redPacketId:",data.SplitRedPacketInfo.redPacketId)
-                console.log("shareCode:",data.SplitRedPacketInfo.shareCode)
+                // console.log("redPacketId:",data.SplitRedPacketInfo.redPacketId)
+                // console.log("shareCode:",data.SplitRedPacketInfo.shareCode)
                 helps.push({
                     redPacketId: data.SplitRedPacketInfo.redPacketId,
                     shareCode: data.SplitRedPacketInfo.shareCode
                 })
             } else if (data.code === 1) {
                 data = await requestApi('getSplitRedPacket', cookie);
-                console.log("redPacketId:",data.SplitRedPacketInfo.redPacketId)
-                console.log("shareCode:",data.SplitRedPacketInfo.shareCode)
+                // console.log("redPacketId:",data.SplitRedPacketInfo.redPacketId)
+                // console.log("shareCode:",data.SplitRedPacketInfo.shareCode)
                 if (data.code === '0' && data.SplitRedPacketInfo ) {//&& data.SplitRedPacketInfo.finishedMoney != data.SplitRedPacketInfo.totalMoney
                     helps.push({
                         redPacketId: data.SplitRedPacketInfo.redPacketId,

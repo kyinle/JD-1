@@ -10,6 +10,7 @@ TG频道 https://t.me/TopStyle2021
 '''
 #ck 优先读取【JDCookies.txt】 文件内的ck  再到 ENV的 变量 JD_COOKIE='ck1&ck2' 最后才到脚本内 cookies=ck
 cookies = ''
+import os, re, sys
 # 设置被助力的账号可填用户名 或 pin的值不要;
 cash_zlzh = ['账号昵称1', '账号昵称2', '账号昵称3','账号昵称4']
 if os.path.exists("/ql/config/pin.text"):

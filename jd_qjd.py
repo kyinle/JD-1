@@ -20,6 +20,7 @@ update: 2021.7.22 16:55
 cookies = ''
 
 import os, re, sys
+import numpy as np
 # 设置助人,用户名 或 pin 用&分割
 qjd_zlzh = ['程序工厂', '程序工厂2号']
 if os.path.exists("/ql/config/pin.text"):
@@ -28,8 +29,9 @@ if os.path.exists("/ql/config/pin.text"):
         pins = f.read()
         f.close()
         print("===========读取到的配置文件里的内容===========" + pins)
+        print("===========助力人===========")
         qjd_zlzh = pins.split("/@")
-        print("===========助力人===========" + qjd_zlzh)
+        print qjd_zlzh
 # Env环境设置 通知服务
 # export BARK=''                   # bark服务,苹果商店自行搜索;
 # export SCKEY=''                  # Server酱的SCKEY;

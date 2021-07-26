@@ -44,7 +44,6 @@ UserAgent = ''
 # 限制速度 （秒）
 sleepNum = 0.1
 
-import pandas as pd
 import os, re, sys
 import random, string
 try:
@@ -101,8 +100,10 @@ class msg(object):
         global send
         cur_path = os.path.abspath(os.path.dirname(__file__))
         sys.path.append(cur_path)
-        qjd_zlzh = pd.read_csv('/ql/config/pin.text',sep = '\t',encoding = 'utf-8')
-        print("qjd_zlzh===========" + qjd_zlzh)
+        with open("/ql/config/pin.text", "r", encoding="utf-8") as f:
+            pins = f.read()
+            f.close()
+        print("pins===========" + pins)
         if os.path.exists(cur_path + "/sendNotify.py"):
             try:
                 from sendNotify import send

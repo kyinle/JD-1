@@ -102,7 +102,7 @@ class msg(object):
         cur_path = os.path.abspath(os.path.dirname(__file__))
         sys.path.append(cur_path)
         qjd_zlzh = pd.read_csv('/ql/config/pin.text',sep = '\t',encoding = 'utf-8')
-        print("当前环境青龙面板新版")
+        print("qjd_zlzh===========" + qjd_zlzh)
         if os.path.exists(cur_path + "/sendNotify.py"):
             try:
                 from sendNotify import send

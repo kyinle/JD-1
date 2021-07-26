@@ -18,6 +18,8 @@ update: 2021.7.22 16:55
 #exit(0)
 #ck 优先读取【JDCookies.txt】 文件内的ck  再到 ENV的 变量 JD_COOKIE='ck1&ck2' 最后才到脚本内 cookies=ck
 cookies = ''
+
+import os, re, sys
 # 设置助人,用户名 或 pin 用&分割
 qjd_zlzh = ['程序工厂', '程序工厂2号']
 if os.path.exists("/ql/config/pin.text"):
@@ -52,7 +54,6 @@ UserAgent = ''
 sleepNum = 0.1
 
 
-import os, re, sys
 import random, string
 try:
     import requests

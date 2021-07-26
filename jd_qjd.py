@@ -27,6 +27,7 @@ if os.path.exists("/ql/config/pin.text"):
         f.close()
         print("===========读取到的配置文件里的内容===========" + pins)
         qjd_zlzh = pins.split("/@")
+        print("===========助力人===========" + qjd_zlzh)
 # Env环境设置 通知服务
 # export BARK=''                   # bark服务,苹果商店自行搜索;
 # export SCKEY=''                  # Server酱的SCKEY;

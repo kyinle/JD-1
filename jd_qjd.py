@@ -20,7 +20,13 @@ update: 2021.7.22 16:55
 cookies = ''
 # 设置助人,用户名 或 pin 用&分割
 qjd_zlzh = ['程序工厂', '程序工厂2号']
-
+if os.path.exists("/ql/config/pin.text"):
+    print("===========读取到配置文件===========")
+    with open("/ql/config/pin.text", "r", encoding="utf-8") as f:
+        pins = f.read()
+        f.close()
+        print("===========读取到的配置文件里的内容===========" + pins)
+        qjd_zlzh = pins.split("/@")
 # Env环境设置 通知服务
 # export BARK=''                   # bark服务,苹果商店自行搜索;
 # export SCKEY=''                  # Server酱的SCKEY;
@@ -101,13 +107,6 @@ class msg(object):
         global send
         cur_path = os.path.abspath(os.path.dirname(__file__))
         sys.path.append(cur_path)
-        if os.path.exists("/ql/config/pin.text"):
-            print("===========读取到配置文件===========")
-            with open("/ql/config/pin.text", "r", encoding="utf-8") as f:
-                pins = f.read()
-                f.close()
-            print("===========读取到的配置文件里的内容===========" + pins)
-            qjd_zlzh = pins.split("/@")
 
         if os.path.exists(cur_path + "/sendNotify.py"):
             try:

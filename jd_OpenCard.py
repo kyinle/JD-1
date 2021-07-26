@@ -184,7 +184,7 @@ today = datetime.datetime.now().strftime('%Y-%m-%d')
 pwd = os.path.dirname(os.path.abspath(__file__)) + os.sep
 
 ######
-openCardBean = 1
+openCardBean = 5
 sleepNum = 0.0
 record = True
 onlyRecord = False
@@ -262,7 +262,7 @@ if "openCardBean" in os.environ:
         openCardBean = int(os.environ["openCardBean"])
         print("已获取并使用Env环境 openCardBean:", openCardBean)
     elif not openCardBean:
-        openCardBean = 0
+        openCardBean = 5
 # 是否开启双线程
 if "DoubleThread" in os.environ:
     if len(os.environ["DoubleThread"]) > 1:

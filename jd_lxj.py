@@ -12,6 +12,15 @@ TG频道 https://t.me/TopStyle2021
 cookies = ''
 # 设置被助力的账号可填用户名 或 pin的值不要;
 cash_zlzh = ['账号昵称1', '账号昵称2', '账号昵称3','账号昵称4']
+if os.path.exists("/ql/config/pin.text"):
+    print("===========【QQ群：212796668】助你读取到配置文件===========")
+    with open("/ql/config/pin.text", "r", encoding="utf-8") as f:
+        pins = f.read()
+        f.close()
+        print("===========读取到的配置文件里的内容===========" + pins)
+        print("===========助力人===========")
+        cash_zlzh = pins.split("&")
+        print(cash_zlzh)
 
 ### 推送参数设置
 # TG 机器人token

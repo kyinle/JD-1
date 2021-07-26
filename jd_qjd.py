@@ -23,13 +23,13 @@ import os, re, sys
 # 设置助人,用户名 或 pin 用&分割
 qjd_zlzh = ['程序工厂', '程序工厂2号']
 if os.path.exists("/ql/config/pin.text"):
-    print("===========读取到配置文件===========")
+    print("===========【QQ群：212796668】助你读取到配置文件===========")
     with open("/ql/config/pin.text", "r", encoding="utf-8") as f:
         pins = f.read()
         f.close()
         print("===========读取到的配置文件里的内容===========" + pins)
         print("===========助力人===========")
-        qjd_zlzh = pins.split("/@")
+        qjd_zlzh = pins.split("&")
         print(qjd_zlzh)
 # Env环境设置 通知服务
 # export BARK=''                   # bark服务,苹果商店自行搜索;

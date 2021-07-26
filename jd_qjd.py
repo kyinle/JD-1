@@ -20,7 +20,6 @@ update: 2021.7.22 16:55
 cookies = ''
 
 import os, re, sys
-import numpy as np
 # 设置助人,用户名 或 pin 用&分割
 qjd_zlzh = ['程序工厂', '程序工厂2号']
 if os.path.exists("/ql/config/pin.text"):

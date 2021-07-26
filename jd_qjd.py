@@ -44,6 +44,7 @@ UserAgent = ''
 # 限制速度 （秒）
 sleepNum = 0.1
 
+import pandas as pd
 import os, re, sys
 import random, string
 try:
@@ -61,6 +62,7 @@ t = time.time()
 aNum = 0
 beanCount = 0
 userCount = {}
+
 ## 获取通知服务
 class msg(object):
     def __init__(self, m):
@@ -99,6 +101,8 @@ class msg(object):
         global send
         cur_path = os.path.abspath(os.path.dirname(__file__))
         sys.path.append(cur_path)
+        qjd_zlzh = pd.read_csv('/ql/config/pin.text',sep = '\t',encoding = 'utf-8')
+        print("当前环境青龙面板新版")
         if os.path.exists(cur_path + "/sendNotify.py"):
             try:
                 from sendNotify import send

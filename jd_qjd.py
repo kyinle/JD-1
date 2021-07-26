@@ -101,10 +101,14 @@ class msg(object):
         global send
         cur_path = os.path.abspath(os.path.dirname(__file__))
         sys.path.append(cur_path)
-        with open("/ql/config/pin.text", "r", encoding="utf-8") as f:
-            pins = f.read()
-            f.close()
-        print("pins===========" + pins)
+        if os.path.exists("/ql/config/pin.text"):
+            print("===========读取到配置文件===========")
+            with open("/ql/config/pin.text", "r", encoding="utf-8") as f:
+                pins = f.read()
+                f.close()
+            print("===========读取到的配置文件里的内容===========" + pins)
+            qjd_zlzh = pins.split("/@")
+
         if os.path.exists(cur_path + "/sendNotify.py"):
             try:
                 from sendNotify import send

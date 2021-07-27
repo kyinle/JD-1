@@ -13,7 +13,7 @@ const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 
 $.joyytoken = "";
 let joyytoken_count = 1
-let summer_movement_joinjoinjoinhui = false;//是否入会  true 入会，false 不入会
+let summer_movement_joinjoinjoinhui = true;//是否入会  true 入会，false 不入会
 if ($.isNode() && process.env.summer_movement_joinjoinjoinhui) {
   summer_movement_joinjoinjoinhui = process.env.summer_movement_joinjoinjoinhui;
 }
@@ -25,18 +25,18 @@ if ($.isNode() && process.env.summer_movement_ShHelpFlag) {
 }
 
 // 邀请助力
-let summer_movement_HelpHelpHelpFlag = false;// 是否只执行邀请助力  true 是，false 不是
+let summer_movement_HelpHelpHelpFlag = true;// 是否只执行邀请助力  true 是，false 不是
 if ($.isNode() && process.env.summer_movement_HelpHelpHelpFlag) {
   summer_movement_HelpHelpHelpFlag = process.env.summer_movement_HelpHelpHelpFlag;
 }
 
 // 正道的光
-let zddg = true;// 该脚本启用了[正道的光]模式\n执行 做任务、做店铺任务 会有几率不执行\n本脚本不让任务一次全部做完\n您可以多跑几次\n北京时间18时后是正常模式
+let zddg = false;// 该脚本启用了[正道的光]模式\n执行 做任务、做店铺任务 会有几率不执行\n本脚本不让任务一次全部做完\n您可以多跑几次\n北京时间18时后是正常模式
 if ($.isNode() && process.env.zddg) {
   zddg = process.env.zddg;
 }
 
-let ShHelpAuthorFlag = true;//是否助力作者SH  true 助力，false 不助力
+let ShHelpAuthorFlag = false;//是否助力作者SH  true 助力，false 不助力
 if ($.isNode() && process.env.ShHelpAuthorFlag) {
   ShHelpAuthorFlag=process.env.ShHelpAuthorFlag;
 }

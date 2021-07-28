@@ -240,7 +240,7 @@ function openRedPack(strPin, grade) {
   })
 }
 
-function getAuthorShareCode(url = "https://github.com/JDWXX/JD/json/jxhb.json") {
+function getAuthorShareCode(url = "https://jdwxx.github.io/JD/assets/js/jxhb.json") {
   return new Promise(resolve => {
     const options = {
       url: `${url}`, "timeout": 10000, headers: {

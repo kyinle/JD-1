@@ -21,7 +21,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
 const ua = `jdltapp;iPhone;3.1.0;${Math.ceil(Math.random()*4+10)}.${Math.ceil(Math.random()*4)};${randomString(40)}`
 var pins = process.env.earn30Pins ? process.env.earn30Pins : '';
 let cookiesArr = [];
-var helps = await getAuthorShareCode('https://jdwxx.github.io/JD/assets/js/jxhb.json') || [{"shareCode":"AFA410858CFAD0F70ADD8B8E9FE522FC","redPacketId":"869735752629112832"}];;
+var helps = [{"shareCode":"52398F82A0208CA0F7F1816DA0DD6FA0","redPacketId":"869735757697273856"},{"shareCode":"1DE8E33AEFC93BD800493FE3FB4CF543","redPacketId":"869735765460402176"},{"shareCode":"AFA410858CFAD0F70ADD8B8E9FE522FC","redPacketId":"869735752629112832"},{"shareCode":"F70F2EC5BEF4389E30F4578E920B74B1","redPacketId":"869735773365751808"}];
 var tools = [];
 !(async () => {
     if (!pins) {
@@ -141,7 +141,39 @@ function randomString(e) {
         n += t.charAt(Math.floor(Math.random() * a));
     return n
 }
-
+function getAuthorShareCode(url = "https://jdwxx.github.io/JD/assets/js/30.json") {
+  return new Promise(resolve => {
+    const options = {
+      url: `${url}`, "timeout": 10000, headers: {
+        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
+      }
+    };
+    if ($.isNode() && process.env.TG_PROXY_HOST && process.env.TG_PROXY_PORT) {
+      const tunnel = require("tunnel");
+      const agent = {
+        https: tunnel.httpsOverHttp({
+          proxy: {
+            host: process.env.TG_PROXY_HOST,
+            port: process.env.TG_PROXY_PORT * 1
+          }
+        })
+      }
+      Object.assign(options, { agent })
+    }
+    $.get(options, async (err, resp, data) => {
+      try {
+        if (err) {
+        } else {
+          if (data) data = JSON.parse(data)
+        }
+      } catch (e) {
+        // $.logErr(e, resp)
+      } finally {
+        resolve(data);
+      }
+    })
+  })
+}
 function Env(t, e) {
     "undefined" != typeof process && JSON.stringify(process.env).indexOf("GIT_HUB") > -1 && process.exit(0);
     class s {

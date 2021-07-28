@@ -20,7 +20,9 @@ const $ = new Env("赚30元")
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
 const ua = `jdltapp;iPhone;3.1.0;${Math.ceil(Math.random()*4+10)}.${Math.ceil(Math.random()*4)};${randomString(40)}`
 var pins = process.env.earn30Pins ? process.env.earn30Pins : '';
-let cookiesArr = [];let isis = [0,1,2];var is = Math.floor((Math.random()*isis.length));var shareCode = ["52398F82A0208CA0F7F1816DA0DD6FA0","1DE8E33AEFC93BD800493FE3FB4CF543","F70F2EC5BEF4389E30F4578E920B74B1"];var redPacketId = ["867202010417221632","867202244714975232","867195289023172608"];var helps = [{"shareCode":shareCode[is],"redPacketId":redPacketId[is]}];var tools = [];
+let cookiesArr = [];
+var helps = await getAuthorShareCode('https://jdwxx.github.io/JD/assets/js/jxhb.json') || [{"shareCode":"AFA410858CFAD0F70ADD8B8E9FE522FC","redPacketId":"869735752629112832"}];;
+var tools = [];
 !(async () => {
     if (!pins) {
         console.log("未填写环境变量earn30Pins，默认所有账号")
@@ -35,16 +37,16 @@ let cookiesArr = [];let isis = [0,1,2];var is = Math.floor((Math.random()*isis.l
             });
 
             if (data.code === 0 && data.SplitRedPacketInfo) {
-                // console.log("redPacketId:",data.SplitRedPacketInfo.redPacketId)
-                // console.log("shareCode:",data.SplitRedPacketInfo.shareCode)
+                console.log("redPacketId:",data.SplitRedPacketInfo.redPacketId)
+                console.log("shareCode:",data.SplitRedPacketInfo.shareCode)
                 helps.push({
                     redPacketId: data.SplitRedPacketInfo.redPacketId,
                     shareCode: data.SplitRedPacketInfo.shareCode
                 })
             } else if (data.code === 1) {
                 data = await requestApi('getSplitRedPacket', cookie);
-                // console.log("redPacketId:",data.SplitRedPacketInfo.redPacketId)
-                // console.log("shareCode:",data.SplitRedPacketInfo.shareCode)
+                console.log("redPacketId:",data.SplitRedPacketInfo.redPacketId)
+                console.log("shareCode:",data.SplitRedPacketInfo.shareCode)
                 if (data.code === '0' && data.SplitRedPacketInfo ) {//&& data.SplitRedPacketInfo.finishedMoney != data.SplitRedPacketInfo.totalMoney
                     helps.push({
                         redPacketId: data.SplitRedPacketInfo.redPacketId,

@@ -8,7 +8,7 @@
 没有几百个CK就不要跑了!!!!!
 第一个CK失效应该全都会助力我，亲注意一下
 入口复制到jd：
-26.0复制整段话 https:/JijBGnJJ4dN3Ri 快来为我拉BUFF，助我赢大奖￥FCUb6BIuZb￥→GO猄倲吧←
+21.0复制整段话 https:/JjiGPaOP1iHTd7 快来为我拉BUFF，助我赢大奖#a6i2jC2Vja%扌丁开→鯨咚A/P P
 更新地址：https://github.com/Tsukasa007/my_script
 ============Quantumultx===============
 [task_local]

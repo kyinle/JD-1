@@ -36,6 +36,7 @@ if ($.isNode()) {
 
 $.invitePinTaskList = []
 
+
 const JD_API_HOST = `https://api.m.jd.com/client.action`;
 message = ""
 !(async () => {
@@ -45,7 +46,7 @@ message = ""
     });
     return;
   }
-  $.shareUuid = 'b07763b03bd3423b9490f270c00a4aec'
+  $.shareUuid = '34ad1f837645434d928681687404190a'
   for (let i = 0; i < cookiesArr.length; i++) {
     cookie = cookiesArr[i];
     if (cookie) {

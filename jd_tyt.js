@@ -1,11 +1,11 @@
 /*
-入口 极速版 赚金币 
+入口 极速版 赚金币
 分享到QQ查看邀请码 packetId就是
 #自定义变量
 export tytpacketId="729c32e8d6f14405bcfcbf43d5a26eec-amRfNTk3YTU0NDc4ZDA2Mw!!"
  [task_local]
 #柠檬推一推
-0 0 * * * http://nm66.top/jd_tyt.js, tag=柠檬推一推, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+0 2 * * * http://nm66.top/jd_tyt.js, tag=柠檬推一推, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 */
 const $ = new Env('柠檬推一推');
 const notify = $.isNode() ? require('./sendNotify') : '';
@@ -52,11 +52,11 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
         }
         continue
       }
-     
+
       await $.wait(10000)
       await tythelp()
-     
-      
+
+
 
     }
   }
@@ -81,19 +81,19 @@ headers: {
       "Cookie": cookie,
       }
                 }
-      
+
         $.post(options, async (err, resp, data) => {
             try {
 
                     data = JSON.parse(data);
 
                     console.log(data.msg)
-                    
+
                     if(data.code == 0){
                       console.log("帮砍："+data.data.amount)
 
                 }else
-                
+
                     console.log(data.msg)
             } catch (e) {
                 $.logErr(e, resp);

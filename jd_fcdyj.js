@@ -21,7 +21,7 @@ const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const openred = $.isNode() ? (process.env.openred ? process.env.openred : 1) : 1 //选择哪个号开包
 const dyjCode = $.isNode() ? (process.env.dyjCode ? process.env.dyjCode : null) : null //选择哪个号开包
 let helpAuthorFlag = true;//是否助力作者SH  true 助力，false 不助力
-let redEnvelopeId = 'f83a6a553a524a85b4484ee8e03e2d5f72791627747536946';
+let redEnvelopeId = '44d9c2d018594459a49e755b87d5968398021627920087114';
 let inviter = 'dEfElq0h2aqf9HkPhnIaiw';
 
 if (process.env.redEnvelopeId) {

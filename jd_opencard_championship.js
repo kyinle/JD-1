@@ -68,7 +68,7 @@ if (!process.env.JD_OPENCARE_CHAMPIONSHIP) {
     });
     return;
   }
-  $.shareUuid = '906a5fb596ef4b378dda7cb6a1eaae0f'
+  $.shareUuid = '090eb9cf721b4cf3a62944ccc2376341'
   for (let i = 0; i < cookiesArr.length; i++) {
     cookie = cookiesArr[i];
     if (cookie) {

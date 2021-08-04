@@ -64,7 +64,7 @@ if (!$.isNode() || !process.env.JD_OPENCARD_DADDY) {
         });
         return;
     }
-    $.shareUuid = '8fc7557f04bc448e92d690f6b60f25b1'
+    $.shareUuid = '76c9ade491a9430b94d42b9ae803065c'
     for (let i = 0; i < cookiesArr.length; i++) {
         cookie = cookiesArr[i];
         if (cookie) {

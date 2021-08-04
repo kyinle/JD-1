@@ -46,7 +46,7 @@ if ($.isNode()) {
 
 let jd_opencard_Daddy
 if (!$.isNode() || !process.env.JD_OPENCARD_DADDY) {
-    $.log(`请设置env变量 JD_OPENCARD_DADDY    填写11就是跑到11个ck就停止  填写21就是跑到21个ck就停止 一天最多助力20个ck 推荐10的倍数 +1 填写！！`)
+//    $.log(`请设置env变量 JD_OPENCARD_DADDY    填写11就是跑到11个ck就停止  填写21就是跑到21个ck就停止 一天最多助力20个ck 推荐10的倍数 +1 填写！！`)
     jd_opencard_Daddy = cookiesArr.length
 } else {
     jd_opencard_Daddy = Number(process.env.JD_OPENCARD_DADDY)

@@ -25,7 +25,7 @@ cron "11 2,11 * * *" script-path=jd_opencard_Daddy.js,tag=8.2-8.12 奶爸盛典 
 ============小火箭=========
 8.2-8.12 奶爸盛典 爸气全开(跑完手动领取100豆) = type=cron,script-path=jd_opencard_Daddy.js, cronexpr="11 2,11 * * *", timeout=3600, enable=true
 */
-const $ = new Env('8.2-8.12 奶爸盛典 爸气全开(跑完手动领取100豆)');
+const $ = new Env('jd_opencard_Daddy');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 let UA = require('./USER_AGENTS.js').USER_AGENT;
 const notify = $.isNode() ? require('./sendNotify') : '';
@@ -46,12 +46,8 @@ if ($.isNode()) {
 
 let jd_opencard_Daddy
 if (!$.isNode() || !process.env.JD_OPENCARD_DADDY) {
-    $.log(`你没有设置JD_OPENCARD_EAT_OPEN_OPENCARD变量 默认为运行到6ck停止`)
     $.log(`请设置env变量 JD_OPENCARD_DADDY    填写11就是跑到11个ck就停止  填写21就是跑到21个ck就停止 一天最多助力20个ck 推荐10的倍数 +1 填写！！`)
-    $.log(`请设置env变量 JD_OPENCARD_DADDY    填写11就是跑到11个ck就停止  填写21就是跑到21个ck就停止 一天最多助力20个ck 推荐10的倍数 +1 填写！！`)
-    $.log(`请设置env变量 JD_OPENCARD_DADDY    填写11就是跑到11个ck就停止  填写21就是跑到21个ck就停止 一天最多助力20个ck 推荐10的倍数 +1 填写！！`)
-    $.log(`请设置env变量 JD_OPENCARD_DADDY    填写11就是跑到11个ck就停止  填写21就是跑到21个ck就停止 一天最多助力20个ck 推荐10的倍数 +1 填写！！`)
-    jd_opencard_Daddy = 21
+    jd_opencard_Daddy = cookiesArr.length
 } else {
     jd_opencard_Daddy = Number(process.env.JD_OPENCARD_DADDY)
     $.log(`你设置了JD_OPENCARD_EAT_OPEN_OPENCARD变量 运行到 ${jd_opencard_Daddy} ck停止`)
@@ -119,7 +115,7 @@ if (!$.isNode() || !process.env.JD_OPENCARD_DADDY) {
             await getActorUuid();
             $.log($.shareUuid)
             if (i === 0 && $.actorUuid) {
-                $.shareUuid = $.actorUuid;
+                //$.shareUuid = $.actorUuid;
             }
             if ($.index == jd_opencard_Daddy) {
                 $.log(`你设置到${jd_opencard_Daddy} 停止，如果不如意请设置 JD_OPENCARD_DADDY变量，注意看js说明！！！没有设置默认11停`)

@@ -155,6 +155,8 @@ message = ""
       await getDrawRecordHasCoupon()
       await $.wait(1000)
       await getShareRecord()
+//      $.log($.actorUuid)
+      $.log($.shareUuid)
       if (i === 0) {
         if($.actorUuid){
           $.shareUuid = $.actorUuid;

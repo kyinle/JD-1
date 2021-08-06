@@ -22,8 +22,10 @@ cookies = ''
 import os, re, sys
 # 设置助人,用户名 或 pin 用&分割
 qjd_zlzh = ['程序工厂', '程序工厂2号']
+print("===========为防止每次重新配置,可在 [/QL/config/pin.text] 目录文件下配置需要助力的号===========")
+print("===========【QQ群：212796668】 文件格式：账号昵称1&账号昵称2===========")
 if os.path.exists("/ql/config/pin.text"):
-    print("===========【QQ群：212796668】助你读取到配置文件===========")
+    print("===========读取到配置文件===========")
     with open("/ql/config/pin.text", "r", encoding="utf-8") as f:
         pins = f.read()
         f.close()

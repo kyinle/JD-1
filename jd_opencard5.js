@@ -62,7 +62,7 @@ message = ""
     return;
   }
   guaopencard_addSku = true
-  $.shareUuid = '8ace63b22cf14eb79913408a9ca4d06e'
+  $.shareUuid = 'f27e444426cb4acbad1d5abcebc3f036'
   $.activityId = '5a1b7bc1f22e4bc5b5686bb54749de2e'
   console.log(`入口:\nhttps://lzdz1-isv.isvjcloud.com/dingzhi/dz/openCard/activity/2611148?activityId=${$.activityId}&shareUuid=${$.shareUuid}`)
   for (let i = 0; i < cookiesArr.length; i++) {

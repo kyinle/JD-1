@@ -8,14 +8,14 @@
 =================================Quantumultx=========================
 [task_local]
 #全民抢京豆
-08 12 * * * https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_qjd.js, tag=全民抢京豆, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+0 0 * * * https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_qjd.js, tag=全民抢京豆, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 =================================Loon===================================
 [Script]
-cron "08 12 * * *" script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_qjd.js,tag=全民抢京豆
+cron "0 0 * * *" script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_qjd.js,tag=全民抢京豆
 ===================================Surge================================
-全民抢京豆 = type=cron,cronexp="08 12 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_qjd.js
+全民抢京豆 = type=cron,cronexp="0 0 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_qjd.js
 ====================================小火箭=============================
-全民抢京豆 = type=cron,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_qjd.js, cronexpr="08 12 * * *", timeout=3600, enable=true
+全民抢京豆 = type=cron,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_qjd.js, cronexpr="0 0 * * *", timeout=3600, enable=true
  */
 const $ = new Env('全民抢京豆');
 const notify = $.isNode() ? require('./sendNotify') : '';

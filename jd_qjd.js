@@ -173,9 +173,9 @@ function getShareCode() {
             data = JSON.parse(data.replace(/jsonp_\d*_\d*\(/, '').replace(/\);?/, ''))
             let {groupCode, shareCode, sumBeanNumStr, activityMsg: {activityId}} = data.data
             helpInfo.push({groupCode, shareCode, sumBeanNumStr, activityId, userName: $.UserName})
-            console.log("===========助力码===========\n ")
-            console.log({groupCode, shareCode, sumBeanNumStr, activityId, userName: $.UserName})
-            console.log("===========助力码===========\n ")
+            // console.log("===========助力码===========\n ")
+            // console.log({groupCode, shareCode, sumBeanNumStr, activityId, userName: $.UserName})
+            // console.log("===========助力码===========\n ")
             resolve()
         })
     })

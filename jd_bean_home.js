@@ -82,10 +82,8 @@ const JD_API_HOST = 'https://api.m.jd.com/';
         if(code[2] && code[2] ===  $.UserName){
           //不助力自己
         } else {
-          console.log($.UserName);
-          console.log(cookie);
-          console.log(code[0]);
-          console.log(code[1]);
+          // console.log(code[0]);
+          // console.log(code[1]);
           await help(code[0], code[1]);
         }
       }

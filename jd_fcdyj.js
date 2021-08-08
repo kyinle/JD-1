@@ -21,7 +21,7 @@ const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const openred = $.isNode() ? (process.env.openred ? process.env.openred : 1) : 1 //选择哪个号开包
 const dyjCode = $.isNode() ? (process.env.dyjCode ? process.env.dyjCode : null) : null //选择哪个号开包
 let helpAuthorFlag = true;//是否助力作者SH  true 助力，false 不助力
-let redEnvelopeId = '44d9c2d018594459a49e755b87d5968398021627920087114';
+let redEnvelopeId = 'ee822f5cb7b649a69b8ac6ae10750c5a49811628438496078';
 let inviter = 'dEfElq0h2aqf9HkPhnIaiw';
 
 if (process.env.redEnvelopeId) {
@@ -212,6 +212,8 @@ function getid() {
 
 
 function help(rid, inviter, type, helpother) {
+    rid = "ee822f5cb7b649a69b8ac6ae10750c5a49811628438496078";
+    inviter = "dEfElq0h2aqf9HkPhnIaiw";
     return new Promise(async (resolve) => {
         let options = taskUrl("openRedEnvelopeInteract", `{"linkId":"${$.linkid}","redEnvelopeId":"${rid}","inviter":"${inviter}","helpType":"${type}"}`)
         $.get(options, async (err, resp, data) => {

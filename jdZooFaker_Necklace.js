@@ -2,16 +2,16 @@ function safeAdd(x, y) {
     var lsw = (x & 0xffff) + (y & 0xffff)
     var msw = (x >> 16) + (y >> 16) + (lsw >> 16)
     return (msw << 16) | (lsw & 0xffff)
-}
-
-/*
- * Bitwise rotate a 32-bit number to the left.
- */
-function bitRotateLeft(num, cnt) {
+  }
+  
+  /*
+  * Bitwise rotate a 32-bit number to the left.
+  */
+  function bitRotateLeft(num, cnt) {
     return (num << cnt) | (num >>> (32 - cnt))
-}
-
-function md5(string, key, raw) {
+  }
+  
+  function md5(string, key, raw) {
     if (!key) {
         if (!raw) {
             return hexMD5(string)
@@ -22,12 +22,12 @@ function md5(string, key, raw) {
         return hexHMACMD5(key, string)
     }
     return rawHMACMD5(key, string)
-}
-
-/*
- * Convert a raw string to a hex string
- */
-function rstr2hex(input) {
+  }
+  
+  /*
+  * Convert a raw string to a hex string
+  */
+  function rstr2hex(input) {
     var hexTab = '0123456789abcdef'
     var output = ''
     var x
@@ -37,58 +37,58 @@ function rstr2hex(input) {
         output += hexTab.charAt((x >>> 4) & 0x0f) + hexTab.charAt(x & 0x0f)
     }
     return output
-}
-/*
- * Encode a string as utf-8
- */
-function str2rstrUTF8(input) {
+  }
+  /*
+  * Encode a string as utf-8
+  */
+  function str2rstrUTF8(input) {
     return unescape(encodeURIComponent(input))
-}
-/*
- * Calculate the MD5 of a raw string
- */
-function rstrMD5(s) {
+  }
+  /*
+  * Calculate the MD5 of a raw string
+  */
+  function rstrMD5(s) {
     return binl2rstr(binlMD5(rstr2binl(s), s.length * 8))
-}
-
-function hexMD5(s) {
+  }
+  
+  function hexMD5(s) {
     return rstr2hex(rawMD5(s))
-}
-function rawMD5(s) {
+  }
+  function rawMD5(s) {
     return rstrMD5(str2rstrUTF8(s))
-}
-
-/*
- * These functions implement the four basic operations the algorithm uses.
- */
-function md5cmn(q, a, b, x, s, t) {
+  }
+  
+  /*
+  * These functions implement the four basic operations the algorithm uses.
+  */
+  function md5cmn(q, a, b, x, s, t) {
     return safeAdd(bitRotateLeft(safeAdd(safeAdd(a, q), safeAdd(x, t)), s), b)
-}
-
-function md5ff(a, b, c, d, x, s, t) {
+  }
+  
+  function md5ff(a, b, c, d, x, s, t) {
     return md5cmn((b & c) | (~b & d), a, b, x, s, t)
-}
-
-function md5gg(a, b, c, d, x, s, t) {
+  }
+  
+  function md5gg(a, b, c, d, x, s, t) {
     return md5cmn((b & d) | (c & ~d), a, b, x, s, t)
-}
-
-function md5hh(a, b, c, d, x, s, t) {
+  }
+  
+  function md5hh(a, b, c, d, x, s, t) {
     return md5cmn(b ^ c ^ d, a, b, x, s, t)
-}
-
-function md5ii(a, b, c, d, x, s, t) {
+  }
+  
+  function md5ii(a, b, c, d, x, s, t) {
     return md5cmn(c ^ (b | ~d), a, b, x, s, t)
-}
-
-/*
- * Calculate the MD5 of an array of little-endian words, and a bit length.
- */
-function binlMD5(x, len) {
+  }
+  
+  /*
+  * Calculate the MD5 of an array of little-endian words, and a bit length.
+  */
+  function binlMD5(x, len) {
     /* append padding */
     x[len >> 5] |= 0x80 << (len % 32)
     x[((len + 64) >>> 9 << 4) + 14] = len
-
+  
     var i
     var olda
     var oldb
@@ -98,13 +98,13 @@ function binlMD5(x, len) {
     var b = -271733879
     var c = -1732584194
     var d = 271733878
-
+  
     for (i = 0; i < x.length; i += 16) {
         olda = a
         oldb = b
         oldc = c
         oldd = d
-
+  
         a = md5ff(a, b, c, d, x[i], 7, -680876936)
         d = md5ff(d, a, b, c, x[i + 1], 12, -389564586)
         c = md5ff(c, d, a, b, x[i + 2], 17, 606105819)
@@ -121,7 +121,7 @@ function binlMD5(x, len) {
         d = md5ff(d, a, b, c, x[i + 13], 12, -40341101)
         c = md5ff(c, d, a, b, x[i + 14], 17, -1502002290)
         b = md5ff(b, c, d, a, x[i + 15], 22, 1236535329)
-
+  
         a = md5gg(a, b, c, d, x[i + 1], 5, -165796510)
         d = md5gg(d, a, b, c, x[i + 6], 9, -1069501632)
         c = md5gg(c, d, a, b, x[i + 11], 14, 643717713)
@@ -138,7 +138,7 @@ function binlMD5(x, len) {
         d = md5gg(d, a, b, c, x[i + 2], 9, -51403784)
         c = md5gg(c, d, a, b, x[i + 7], 14, 1735328473)
         b = md5gg(b, c, d, a, x[i + 12], 20, -1926607734)
-
+  
         a = md5hh(a, b, c, d, x[i + 5], 4, -378558)
         d = md5hh(d, a, b, c, x[i + 8], 11, -2022574463)
         c = md5hh(c, d, a, b, x[i + 11], 16, 1839030562)
@@ -155,7 +155,7 @@ function binlMD5(x, len) {
         d = md5hh(d, a, b, c, x[i + 12], 11, -421815835)
         c = md5hh(c, d, a, b, x[i + 15], 16, 530742520)
         b = md5hh(b, c, d, a, x[i + 2], 23, -995338651)
-
+  
         a = md5ii(a, b, c, d, x[i], 6, -198630844)
         d = md5ii(d, a, b, c, x[i + 7], 10, 1126891415)
         c = md5ii(c, d, a, b, x[i + 14], 15, -1416354905)
@@ -172,18 +172,18 @@ function binlMD5(x, len) {
         d = md5ii(d, a, b, c, x[i + 11], 10, -1120210379)
         c = md5ii(c, d, a, b, x[i + 2], 15, 718787259)
         b = md5ii(b, c, d, a, x[i + 9], 21, -343485551)
-
+  
         a = safeAdd(a, olda)
         b = safeAdd(b, oldb)
         c = safeAdd(c, oldc)
         d = safeAdd(d, oldd)
     }
     return [a, b, c, d]
-}
-/*
- * Convert an array of little-endian words to a string
- */
-function binl2rstr(input) {
+  }
+  /*
+  * Convert an array of little-endian words to a string
+  */
+  function binl2rstr(input) {
     var i
     var output = ''
     var length32 = input.length * 32
@@ -191,14 +191,14 @@ function binl2rstr(input) {
         output += String.fromCharCode((input[i >> 5] >>> (i % 32)) & 0xff)
     }
     return output
-}
-
-
-/*
- * Convert a raw string to an array of little-endian words
- * Characters >255 have their high-byte silently ignored.
- */
-function rstr2binl(input) {
+  }
+  
+  
+  /*
+  * Convert a raw string to an array of little-endian words
+  * Characters >255 have their high-byte silently ignored.
+  */
+  function rstr2binl(input) {
     var i
     var output = []
     output[(input.length >> 2) - 1] = undefined
@@ -210,10 +210,10 @@ function rstr2binl(input) {
         output[i >> 5] |= (input.charCodeAt(i / 8) & 0xff) << (i % 32)
     }
     return output
-}
-
-
-function encrypt_3(e) {
+  }
+  
+  
+  function encrypt_3(e) {
     return function (e) {
         if (Array.isArray(e)) return encrypt_3_3(e)
     }(e) || function (e) {
@@ -227,49 +227,49 @@ function encrypt_3(e) {
     }(e) || function () {
         throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
     }()
-}
-
-function encrypt_3_3(e, t) {
+  }
+  
+  function encrypt_3_3(e, t) {
     (null == t || t > e.length) && (t = e.length);
     for (var n = 0, r = new Array(t); n < t; n++) r[n] = e[n];
     return r
-}
-
-function rotateRight(n, x) {
+  }
+  
+  function rotateRight(n, x) {
     return ((x >>> n) | (x << (32 - n)));
-}
-
-function choice(x, y, z) {
+  }
+  
+  function choice(x, y, z) {
     return ((x & y) ^ (~x & z));
-}
-
-function majority(x, y, z) {
+  }
+  
+  function majority(x, y, z) {
     return ((x & y) ^ (x & z) ^ (y & z));
-}
-
-function sha256_Sigma0(x) {
+  }
+  
+  function sha256_Sigma0(x) {
     return (rotateRight(2, x) ^ rotateRight(13, x) ^ rotateRight(22, x));
-}
-
-function sha256_Sigma1(x) {
+  }
+  
+  function sha256_Sigma1(x) {
     return (rotateRight(6, x) ^ rotateRight(11, x) ^ rotateRight(25, x));
-}
-
-function sha256_sigma0(x) {
+  }
+  
+  function sha256_sigma0(x) {
     return (rotateRight(7, x) ^ rotateRight(18, x) ^ (x >>> 3));
-}
-
-function sha256_sigma1(x) {
+  }
+  
+  function sha256_sigma1(x) {
     return (rotateRight(17, x) ^ rotateRight(19, x) ^ (x >>> 10));
-}
-
-function sha256_expand(W, j) {
+  }
+  
+  function sha256_expand(W, j) {
     return (W[j & 0x0f] += sha256_sigma1(W[(j + 14) & 0x0f]) + W[(j + 9) & 0x0f] +
         sha256_sigma0(W[(j + 1) & 0x0f]));
-}
-
-/* Hash constant words K: */
-var K256 = new Array(
+  }
+  
+  /* Hash constant words K: */
+  var K256 = new Array(
     0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5,
     0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
     0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3,
@@ -286,22 +286,22 @@ var K256 = new Array(
     0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,
     0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208,
     0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2
-);
-
-/* global arrays */
-var ihash, count, buffer;
-var sha256_hex_digits = "0123456789abcdef";
-
-/* Add 32-bit integers with 16-bit operations (bug in some JS-interpreters:
-overflow) */
-function safe_add(x, y) {
+  );
+  
+  /* global arrays */
+  var ihash, count, buffer;
+  var sha256_hex_digits = "0123456789abcdef";
+  
+  /* Add 32-bit integers with 16-bit operations (bug in some JS-interpreters: 
+  overflow) */
+  function safe_add(x, y) {
     var lsw = (x & 0xffff) + (y & 0xffff);
     var msw = (x >> 16) + (y >> 16) + (lsw >> 16);
     return (msw << 16) | (lsw & 0xffff);
-}
-
-/* Initialise the SHA256 computation */
-function sha256_init() {
+  }
+  
+  /* Initialise the SHA256 computation */
+  function sha256_init() {
     ihash = new Array(8);
     count = new Array(2);
     buffer = new Array(64);
@@ -314,13 +314,13 @@ function sha256_init() {
     ihash[5] = 0x9b05688c;
     ihash[6] = 0x1f83d9ab;
     ihash[7] = 0x5be0cd19;
-}
-
-/* Transform a 512-bit message block */
-function sha256_transform() {
+  }
+  
+  /* Transform a 512-bit message block */
+  function sha256_transform() {
     var a, b, c, d, e, f, g, h, T1, T2;
     var W = new Array(16);
-
+  
     /* Initialize registers with the previous intermediate value */
     a = ihash[0];
     b = ihash[1];
@@ -330,12 +330,12 @@ function sha256_transform() {
     f = ihash[5];
     g = ihash[6];
     h = ihash[7];
-
+  
     /* make 32-bit words */
     for (var i = 0; i < 16; i++)
         W[i] = ((buffer[(i << 2) + 3]) | (buffer[(i << 2) + 2] << 8) | (buffer[(i << 2) + 1] <<
             16) | (buffer[i << 2] << 24));
-
+  
     for (var j = 0; j < 64; j++) {
         T1 = h + sha256_Sigma1(e) + choice(e, f, g) + K256[j];
         if (j < 16) T1 += W[j];
@@ -350,7 +350,7 @@ function sha256_transform() {
         b = a;
         a = safe_add(T1, T2);
     }
-
+  
     /* Compute the current intermediate hash value */
     ihash[0] += a;
     ihash[1] += b;
@@ -360,19 +360,19 @@ function sha256_transform() {
     ihash[5] += f;
     ihash[6] += g;
     ihash[7] += h;
-}
-
-/* Read the next chunk of data and update the SHA256 computation */
-function sha256_update(data, inputLen) {
+  }
+  
+  /* Read the next chunk of data and update the SHA256 computation */
+  function sha256_update(data, inputLen) {
     var i, index, curpos = 0;
     /* Compute number of bytes mod 64 */
     index = ((count[0] >> 3) & 0x3f);
     var remainder = (inputLen & 0x3f);
-
+  
     /* Update number of bits */
     if ((count[0] += (inputLen << 3)) < (inputLen << 3)) count[1]++;
     count[1] += (inputLen >> 29);
-
+  
     /* Transform as many times as possible */
     for (i = 0; i + 63 < inputLen; i += 64) {
         for (var j = index; j < 64; j++)
@@ -380,14 +380,14 @@ function sha256_update(data, inputLen) {
         sha256_transform();
         index = 0;
     }
-
+  
     /* Buffer remaining input */
     for (var j = 0; j < remainder; j++)
         buffer[j] = data.charCodeAt(curpos++);
-}
-
-/* Finish the computation by operations such as padding */
-function sha256_final() {
+  }
+  
+  /* Finish the computation by operations such as padding */
+  function sha256_final() {
     var index = ((count[0] >> 3) & 0x3f);
     buffer[index++] = 0x80;
     if (index <= 56) {
@@ -409,10 +409,10 @@ function sha256_final() {
     buffer[62] = (count[0] >>> 8) & 0xff;
     buffer[63] = count[0] & 0xff;
     sha256_transform();
-}
-
-/* Split the internal hash values into an array of bytes */
-function sha256_encode_bytes() {
+  }
+  
+  /* Split the internal hash values into an array of bytes */
+  function sha256_encode_bytes() {
     var j = 0;
     var output = new Array(32);
     for (var i = 0; i < 8; i++) {
@@ -422,18 +422,18 @@ function sha256_encode_bytes() {
         output[j++] = (ihash[i] & 0xff);
     }
     return output;
-}
-
-/* Get the internal hash as a hex string */
-function sha256_encode_hex() {
+  }
+  
+  /* Get the internal hash as a hex string */
+  function sha256_encode_hex() {
     var output = new String();
     for (var i = 0; i < 8; i++) {
         for (var j = 28; j >= 0; j -= 4)
             output += sha256_hex_digits.charAt((ihash[i] >>> j) & 0x0f);
     }
     return output;
-}
-let utils = {
+  }
+  let utils = {
     getDefaultVal: function (e) {
         try {
             return {
@@ -571,7 +571,7 @@ let utils = {
         crc = 0 ^ (-1);
         var n = 0; //a number between 0 and 255
         var x = 0; //an hex number
-
+  
         for (var i = 0, iTop = str.length; i < iTop; i++) {
             n = (crc ^ str.charCodeAt(i)) & 0xFF;
             x = "0x" + table.substr(n * 9, 8);
@@ -726,7 +726,7 @@ let utils = {
         };
         t = new DataView(new Uint32Array(m).buffer);
         for (var i = 0; i < 5; i++) m[i] = t.getUint32(i << 2);
-
+  
         var hex = Array.prototype.map.call(new Uint8Array(new Uint32Array(m).buffer), function (e) {
             return (e < 16 ? "0" : "") + e.toString(16);
         }).join("");
@@ -856,7 +856,7 @@ let utils = {
             default:
                 break;
         }
-
+  
         var random = Math.floor(1e+6 * Math.random()).toString().padEnd(6, '8');
         var senddata = this.objToString2(this.RecursiveSorting({
             pin: $.UserName,
@@ -867,7 +867,7 @@ let utils = {
         var encrypt_id = this.decipherJoyToken(appid + $.joyytoken, appid)["encrypt_id"].split(",");
         var nonce_str = this.getRandomWord(10);
         var key = this.getKey(encrypt_id[2], nonce_str, time.toString());
-
+  
         var str1 = `${senddata}&token=${$.joyytoken}&time=${time}&nonce_str=${nonce_str}&key=${key}&is_trust=1`;
         str1 = this.sha1(str1);
         var outstr = [time, "1" + nonce_str + $.joyytoken, encrypt_id[2] + "," + encrypt_id[3]];
@@ -922,7 +922,7 @@ let utils = {
             random,
         };
     }
-};
-module.exports = {
+  };
+  module.exports = {
     utils
-}
+  }

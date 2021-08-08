@@ -242,6 +242,7 @@ async function beanTaskList(type) {
                 }
                 break
               case 3:
+                console.log(data.data)
                 let taskInfos3 = data.data.taskInfos
                 for (let key of Object.keys(taskInfos3)) {
                   let vo = taskInfos3[key]
